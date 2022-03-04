@@ -2,15 +2,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Post(models.Model):
 
+class Post(models.Model):
     title = models.CharField(max_length=128)
     text = models.TextField(blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_date = models.DateField(auto_now_add=True)
     modifited_date = models.DateField(auto_now=True)
-
-    # if null, not published yet, if a date, is published
     published_date = models.DateField(blank=True, null=True)
 
     def __str__(self):
@@ -18,7 +16,6 @@ class Post(models.Model):
 
 
 class Category(models.Model):
-    
     class Meta:
         verbose_name_plural = 'Categories'
 

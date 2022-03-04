@@ -1,3 +1,4 @@
+# blogging/views.py
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template import loader
@@ -8,7 +9,6 @@ from django.views.generic.detail import DetailView
 
 
 class StubView(View):
-
     def get(self, request, *args, **kwargs):
         body = "Stub View\n\n"
         if args:
@@ -23,7 +23,6 @@ class StubView(View):
 class PostListView(ListView):
     queryset = Post.objects.exclude(published_date__exact=None).order_by('-published_date')
     template_name = 'blogging/list.html'
-    context_object_name = 'posts'
 
 
 class PostDetailView(DetailView):
