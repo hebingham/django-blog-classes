@@ -1,5 +1,4 @@
 # polling/urls.py
-
 from django.urls import path
 from polling.views import PollListView, PollDetailView
 

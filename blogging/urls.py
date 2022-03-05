@@ -1,4 +1,5 @@
 # blogging/urls.py
+
 from django.urls import path
 from blogging.views import StubView
 from blogging.views import PostListView

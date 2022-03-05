@@ -1,4 +1,5 @@
 # blogging/views.py
+
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template import loader
@@ -26,5 +27,7 @@ class PostListView(ListView):
 
 
 class PostDetailView(DetailView):
-    model = Post
+    #model = Post
+    queryset = Post.objects.exclude(published_date__exact=None)
+    #queryset = Post.objects.filter(published_date__exact!=Null)
     template_name = 'blogging/detail.html'
