@@ -22,12 +22,12 @@ class StubView(View):
 
 
 class PostListView(ListView):
-    queryset = Post.objects.exclude(published_date__exact=None).order_by('-published_date')
-    template_name = 'blogging/list.html'
+    queryset = Post.objects.exclude(published_date__exact=None).order_by(
+        "-published_date"
+    )
+    template_name = "blogging/list.html"
 
 
 class PostDetailView(DetailView):
-    #model = Post
     queryset = Post.objects.exclude(published_date__exact=None)
-    #queryset = Post.objects.filter(published_date__exact!=Null)
-    template_name = 'blogging/detail.html'
+    template_name = "blogging/detail.html"
