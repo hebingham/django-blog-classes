@@ -2,6 +2,8 @@ import os
 
 import dj_database_url
 
+import psycopg2
+
 from .settings import *
 
 DATABASES = {
@@ -20,3 +22,7 @@ MIDDLEWARE = (
     "whitenoise.middleware.WhiteNoiseMiddleware",
     *MIDDLEWARE,
 )
+
+
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
